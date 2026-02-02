@@ -1,30 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chief Mobile Bank Download</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chief Mobile Bank – Download App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+    h1 {
+      color: #004080;
+    }
+    p {
+      margin: 20px 0;
+    }
+    a.button {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 18px;
+      text-decoration: none;
+      color: #fff;
+      border-radius: 8px;
+      background-color: #0073e6;
+      transition: 0.3s;
+    }
+    a.button:hover {
+      background-color: #005bb5;
+    }
+    #msg {
+      margin-top: 30px;
+      font-style: italic;
+    }
+  </style>
+
+  <!-- Optional: Google Analytics (replace G-XXXXXXXXXX) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
 
   <script>
     function redirect() {
       const ua = navigator.userAgent.toLowerCase();
+      const androidLink = "https://play.google.com/store/apps/details?id=com.bpcbt.android.app.chiefbank";
+      const iosLink = "https://apps.apple.com/kh/app/chief-mobile-bank/id1495178101";
 
       if (ua.includes("android")) {
-        window.location.href =
-          "https://play.google.com/store/apps/details?id=com.bpcbt.android.app.chiefbank";
-      }
+        window.location.href = androidLink;
+      } 
       else if (ua.includes("iphone") || ua.includes("ipad") || ua.includes("ipod")) {
-        window.location.href =
-          "https://apps.apple.com/kh/app/chief-mobile-bank/id1495178101";
-      }
+        window.location.href = iosLink;
+      } 
       else {
-        document.getElementById("msg").innerText =
-          "Please open this QR code on your mobile phone.";
+        document.getElementById("msg").innerHTML = `
+          Please open this page on your mobile device.<br>
+          <a class="button" href="${androidLink}">Download Android App</a>
+          <a class="button" href="${iosLink}">Download iOS App</a>
+        `;
       }
     }
   </script>
 </head>
-
 <body onload="redirect()">
-  <h3 id="msg">Redirecting…</h3>
+  <h1>Chief Mobile Bank</h1>
+  <p>Thank you for scanning! Redirecting you to the correct app store…</p>
+  <p id="msg"></p>
 </body>
 </html>
