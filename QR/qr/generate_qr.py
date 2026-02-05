@@ -1,6 +1,6 @@
 import qrcode
 
-url = "https://sakadanissay.github.io/chiefbank/"
+url = "https://chiefbankcspp-app.github.io/chiefbankapp/"
 
 qr = qrcode.make(url)
 qr.save("chief_mobile_bank_qr.png")
